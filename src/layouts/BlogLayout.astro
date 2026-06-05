@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  excerpt: string;
+  category?: string;
+}
+
+const { title, date, excerpt, category } = Astro.props;
+const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title={title} description={excerpt}>
+  <div class="pt-24 pb-16 px-6 max-w-3xl mx-auto">
+    <a href="/blog/" class="inline-flex items-center gap-2 text-lime text-sm font-heading font-semibold uppercase tracking-widest mb-8 hover:text-lime-dark transition-colors">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-block align-middle"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Blog
+    </a>
+
+    {category && (
+      <div class="mb-4">
+        <span class="inline-block text-xs font-heading font-semibold uppercase tracking-widest text-lime">{category}</span>
+      </div>
+    )}
+
+    <h1 class="font-display font-normal text-3xl md:text-4xl lg:text-6xl text-white leading-tight mb-4 page-title">{title}</h1>
+    <p class="text-white/50 text-sm font-heading mb-10">{formattedDate}</p>
+
+    <div class="blog-content">
+      <slot />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <a href="/blog/" class="inline-flex items-center gap-2 text-lime text-sm font-heading font-semibold uppercase tracking-widest hover:text-lime-dark transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-block align-middle"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Blog
+      </a>
+    </div>
+  </div>
+</Layout>

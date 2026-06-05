@@ -1,0 +1,254 @@
+﻿---
+import Layout from "../../layouts/Layout.astro";
+
+const testimonials = [
+  {
+    quote:
+      "Mike is an enthusiastic coach who challenges and encourages his goalkeepers to do better. His use of different drills and techniques keeps his goalkeepers on their toes and develops their skills with noted improvement in game situations. Personally I feel like I've had my best and most rounded season as a player because of Mike's continued support with his coaching.",
+    name: "Connor Harrod",
+    club: "Cockfield United",
+  },
+  {
+    quote:
+      "Mike's sessions are all very well planned, with good thought going into progression of the area we are working on that week, but most importantly, for me, the sessions are always enjoyable.",
+    name: "Ross Brinkley",
+    club: "Cockfield United",
+  },
+  {
+    quote:
+      "Always quality sessions with Mike keeping every keeper he works with on his toes and progressing every week.",
+    name: "Ben Moye",
+    club: "",
+  },
+  {
+    quote:
+      "Excellent coach, Jack has learned a lot and is also so much more confident in goal.",
+    name: "Jamie",
+    club: "Parent",
+  },
+  {
+    quote: "Superb training sessions, made me better as a goalkeeper.",
+    name: "Will Stacey",
+    club: "Long Melford FC",
+  },
+  {
+    quote:
+      "Having trained with East Anglian academies, some of the best coaches in the region, Mike is a keeper who I've grown a personal relationship with and in turn have developed more skills from with this. I couldn't recommend Mike more as a coach, especially if you've begun to fall out of love with the art of goalkeeping. He's reeled me right back in.",
+    name: "Josh Stokes",
+    club: "Long Melford FC",
+  },
+  {
+    quote:
+      "I started training with Mike in 2021 and I can gladly say that he has helped me improve massively throughout this season with his endless desire to learn and different techniques to try. I regularly read his blog where he posts about new ways to develop my game. He always makes sure training is fun and enjoyable which is the most important part — you cannot learn if you can't have fun.",
+    name: "Alex Utteridge",
+    club: "",
+  },
+  {
+    quote:
+      "I went to watch Max play for the first time since his goalie training today and wow what a difference!! His team played a really tough side but he was confident, challenged their players and made some incredible saves — he also got man of the match and other parents said how much he's improved. Fab work coach!",
+    name: "Roxanne",
+    club: "Parent",
+  },
+];
+---
+
+<Layout
+  title="Goalkeeper Coaching in Halstead, Essex & the Surrounding Area"
+  description="Group goalkeeper coaching sessions on the Essex/Suffolk border. FA qualified, DBS checked. Based in Halstead, covering Colchester, Braintree, Sudbury and beyond."
+>
+  <!-- Page Header -->
+  <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent"
+    >
+    </div>
+    <div class="max-w-5xl mx-auto relative">
+      <p
+        class="font-heading font-semibold text-lime text-sm uppercase tracking-widest mb-4"
+      >
+        MO Goalkeeping
+      </p>
+      <h1
+        class="font-heading font-extrabold text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-6 page-title"
+      >
+        Goalkeeper Coaching <span
+          class="text-lime font-heading text-xl font-bold block"
+          >in Halstead, Essex &amp; the Surrounding Area</span
+        >
+      </h1>
+      <p class="text-white/60 text-xl max-w-2xl">
+        Group goalkeeper sessions on the Essex/Suffolk border, for players of
+        all ages and abilities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="h-64 md:h-80 overflow-hidden">
+    <img
+      src="/images/banners/clubmogk-banner-5.jpg"
+      alt="Goalkeeper coaching session in Essex"
+      class="w-full h-full object-cover object-top"
+    />
+  </section>
+
+  <!-- Club MO/GK CTA strip -->
+  <section class="py-12 px-6 bg-lime">
+    <div
+      class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+    >
+      <div>
+        <h2 class="font-heading font-extrabold text-dark text-2xl md:text-3xl">
+          Club MO/GK - Group Sessions for Ages 6-16
+        </h2>
+        <p class="text-dark/90 mt-1">
+          Monday evenings in Halstead, Essex. All abilities welcome.
+        </p>
+      </div>
+      <a
+        href="/goalkeeper-coaching/club-mo-gk/"
+        class="shrink-0 inline-flex items-center px-6 py-3 bg-dark text-white font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-dark/80 transition-colors"
+      >
+        Join the Club
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Copy -->
+  <section class="py-12 xl:py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12">
+        <div
+          class="md:col-span-2 space-y-6 text-white/75 text-lg leading-relaxed"
+        >
+          <h2
+            class="font-heading font-extrabold text-white text-3xl md:text-4xl"
+          >
+            Goalkeeper coaching in Essex &amp; Suffolk
+          </h2>
+          <p>
+            My main coaching offering is <a
+              href="/goalkeeper-coaching/club-mo-gk/"
+              class="text-lime hover:underline">Club MO/GK</a
+            >, a group goalkeeper training programme for children aged 6-16,
+            running Monday evenings at Halstead Leisure Centre. I'm an FA
+            qualified coach with a full DBS certificate, and I've been coaching
+            goalkeepers in the area since 2020.
+          </p>
+          <p>
+            I work with players of all different ages and abilities. If you're
+            based in or around Halstead, Colchester, Braintree, Sudbury, or the
+            villages in between, Club MO/GK is probably the best place to start.
+          </p>
+          <p>
+            If you're looking for something that doesn't quite fit that mould,
+            whether that's for a senior player, a different age group, or
+            something else entirely, feel free to <a
+              href="/enquire/"
+              class="text-lime hover:underline">get in touch</a
+            > and I'll see what I can do, or at least point you in the right direction.
+          </p>
+        </div>
+        <aside class="space-y-6">
+          <div class="bg-white/5 p-6">
+            <h3
+              class="font-heading font-bold text-lime text-lg uppercase tracking-wider mb-4"
+            >
+              Areas Covered
+            </h3>
+            <ul class="text-white/60 space-y-2 font-body">
+              <li>Halstead</li>
+              <li>Colchester</li>
+              <li>Braintree</li>
+              <li>Sudbury</li>
+              <li>Bury St Edmunds</li>
+              <li>Earls Colne</li>
+              <li>Coggeshall</li>
+              <li>Castle Hedingham</li>
+              <li>Sible Hedingham</li>
+              <li>Gosfield</li>
+              <li>Long Melford</li>
+              <li class="text-white/40 italic">...and surrounding villages</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 transition-colors p-6">
+            <h3
+              class="font-heading font-bold text-white text-lg uppercase tracking-wider mb-4"
+            >
+              Qualifications
+            </h3>
+            <ul class="text-white/60 space-y-2">
+              <li>FA Qualified Coach</li>
+              <li>Full DBS Certificate</li>
+            </ul>
+          </div>
+          <a
+            href="/enquire/"
+            class="block text-center px-6 py-3 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors"
+          >
+            Enquire Now
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="h-64 md:h-80 overflow-hidden">
+    <img
+      src="/images/banners/clubmogk-banner-7.jpg"
+      alt="Goalkeeper coaching in Suffolk and Essex"
+      class="w-full h-full object-cover"
+    />
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-12 xl:py-20 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-extrabold text-4xl text-white mb-4">
+          What <span class="text-lime">Players Say</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          testimonials.map((t) => (
+            <blockquote class="bg-white/5 p-8">
+              <p class="text-white text-base leading-relaxed mb-4">
+                "{t.quote}"
+              </p>
+              <footer>
+                <strong class="text-white font-heading font-bold text-sm">
+                  {t.name}
+                </strong>
+                {t.club && (
+                  <span class="text-white/40 text-sm font-body">
+                    , {t.club}
+                  </span>
+                )}
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 xl:py-20 px-6 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading font-extrabold text-4xl text-white mb-4">
+        Get in touch
+      </h2>
+      <p class="text-white/60 text-lg mb-8">
+        Drop me a message and we'll talk about what you're looking for.
+      </p>
+      <a
+        href="/enquire/"
+        class="inline-flex items-center px-8 py-4 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors"
+      >
+        Send an Enquiry
+      </a>
+    </div>
+  </section>
+</Layout>

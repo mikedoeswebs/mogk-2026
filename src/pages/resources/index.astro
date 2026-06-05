@@ -1,0 +1,99 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+
+const resources = [
+  {
+    category: "Session Plans",
+    title: "Goalkeeper Session Compendium",
+    description: "A full year's worth of progressive goalkeeper coaching sessions. Covers all key areas of goalkeeping with clear objectives, progressions, and coaching points.",
+    price: "£9.99",
+    type: "paid",
+    buyUrl: "#",
+  },
+  {
+    category: "Session Plans",
+    title: "Goalkeeper Coaching Sessions Collection (2023)",
+    description: "A collection of tried-and-tested goalkeeper coaching sessions from 2023. Great for coaches looking for ready-to-run session ideas with built-in progression.",
+    price: "£4.99",
+    type: "paid",
+    buyUrl: "#",
+  },
+  {
+    category: "Training Plan",
+    title: "Junior Goalkeeper Training Plan",
+    description: "A structured training plan designed specifically for young goalkeepers. Covers the key technical and decision-making skills at an age-appropriate level.",
+    price: "£2.99",
+    type: "paid",
+    buyUrl: "#",
+  },
+];
+---
+
+<Layout
+  title="Goalkeeper Coaching Resources"
+  description="Goalkeeper coaching resources including session plans and training programmes. Created by MO Goalkeeping to help coaches and goalkeepers develop their game."
+>
+
+  <!-- Page Header -->
+  <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent"></div>
+    <div class="max-w-5xl mx-auto relative">
+      <p class="font-heading font-semibold text-lime text-sm uppercase tracking-widest mb-4">MO Goalkeeping</p>
+      <h1 class="font-heading font-extrabold text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-6 page-title">
+        Coaching <span class="text-lime">Resources</span>
+      </h1>
+      <p class="text-white/60 text-xl max-w-2xl">
+        A selection of coaching resources for goalkeepers and coaches — a mix of free and paid material.
+      </p>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section class="px-6 pb-8">
+    <div class="max-w-5xl mx-auto">
+      <div class="bg-white/5 p-8 text-white">
+        <strong class="text-lime">Note:</strong> I've temporarily stopped offering online purchases of my resources, but if you're interested in any of my plans, please <a href="/enquire/" class="text-lime hover:underline">get in touch</a> and I'll see what I can do.
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources grid -->
+  <section class="py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-6">
+        {resources.map((r) => (
+          <div class="bg-white/5 overflow-hidden group flex flex-col">
+            <div class="p-6 flex-1">
+              <div class="text-lime font-heading font-bold text-xs uppercase tracking-widest mb-3">{r.category}</div>
+              <h2 class="font-heading font-bold text-white text-xl mb-3 transition-colors leading-snug">{r.title}</h2>
+              <p class="text-white/55 text-sm leading-relaxed mb-4">{r.description}</p>
+            </div>
+            <div class="px-6 pb-6 flex items-center justify-between">
+              <span class="font-heading font-extrabold text-lime text-2xl">{r.price}</span>
+              <a
+                href={r.buyUrl}
+                class="inline-flex items-center px-5 py-2.5 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-xs rounded hover:bg-lime-dark transition-colors opacity-50 cursor-not-allowed"
+              >
+                Buy Now
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Free resources -->
+  <section class="py-16 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="font-heading font-extrabold text-3xl text-white mb-4">Interest in <span class="text-lime">My Resources?</span></h2>
+      <p class="text-white/60 text-lg max-w-xl mx-auto mb-8">
+        If you're interested in any of my coaching resources, or if there's something specific you'd like to see that I don't currently offer, please don't hesitate to reach out.
+      </p>
+      <a href="/enquire/" class="inline-flex items-center px-6 py-3 border border-lime text-lime font-heading font-bold uppercase tracking-wider text-sm rounded transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</Layout>

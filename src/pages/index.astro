@@ -1,11 +1,168 @@
----
-import Welcome from '../components/Welcome.astro';
+﻿---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home" description="Goalkeeper coaching in Halstead, Essex and across the Suffolk/Essex border. Group sessions, 1-2-1 coaching, and specialist club services.">
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="/images/home-video.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-dark/70"></div>
+    <div class="relative z-10 text-center px-6 max-w-6xl w-full mx-auto">
+      <h1 class="font-display font-normal text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-6 pt-6">
+        Goalkeeper Coaching <span class="text-lime">For All</span>
+      </h1>
+      <p class="text-white text-lg md:text-xl max-w-xl mx-auto mb-10">
+        Group sessions, 1-2-1 coaching, and specialist club services across the Suffolk &amp; Essex border.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/enquire/" class="inline-flex items-center px-8 py-4 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+          Enquire Now
+        </a>
+        <a href="/goalkeeper-coaching/club-mo-gk/" class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime hover:text-dark hover:border-lime transition-colors">
+          Club MO/GK
+        </a>
+      </div>
+    </div>
+    <a href="#intro" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hover:text-lime transition-colors animate-bounce" aria-label="Scroll down">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </section>
+
+  <!-- Intro -->
+  <section id="intro" class="py-12 xl:py-20 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-heading font-semibold text-lime text uppercase tracking-widest mb-2">Welcome to</p>
+      <h2 class="font-heading text-4xl md:text-5xl text-white mb-8 leading-tight uppercase">
+        <span class="font-extrabold">MO</span><span class="text-lime font-bold mx-1">/</span><span class="font-light">Goalkeeping</span>
+      </h2>
+      <p class="text-white text-lg leading-relaxed">
+        Hi, I'm Mike and I'm a goalkeeper coach based on the Suffolk / Essex border. I offer a range of group goalkeeper coaching services around Sudbury, Bury St Edmunds, Halstead, Colchester, Braintree and beyond as well as specialist training sessions for football clubs in the area, for players of all ages and experience. MO/GK is for <strong class="text-white">everyone</strong>.
+      </p>
+      <div class="mt-8">
+        <a href="/goalkeeper-coaching/" class="inline-flex items-center px-6 py-3 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+          Goalkeeper Coaching
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Powered by -->
+  <section class="py-8 bg-blue-dark">
+    <div class="flex justify-center">
+      <a href="https://www.theoneglove.com/?ref=mogk" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-col">
+        <span class="block text-sm uppercase">Powered by</span>
+        <img src="/images/one.svg" alt="Powered by ONE" height="36" width="178" />
+      </a>
+    </div>
+  </section>
+
+  <!-- Banner image 1 -->
+  <section class="h-64 md:h-96 overflow-hidden">
+    <img
+      src="/images/banners/clubmogk-banner-3.jpg"
+      alt="Essex goalkeeper coaching session"
+      loading="lazy"
+      class="w-full h-full object-cover object-top"
+    />
+  </section>
+
+  <!-- Coaching Resources -->
+  <section class="py-12 xl:py-20 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-extrabold text-4xl md:text-5xl text-white mb-4 uppercase">
+          Coaching <span class="text-lime">Resources</span>
+        </h2>
+        <p class="text-white/60 text-lg max-w-xl mx-auto">
+          A mix of free and paid coaching resources for goalkeepers and coaches.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-white/5 group flex flex-col">
+          <div class="text-lime font-heading font-bold text-sm uppercase tracking-wider mb-3">Session Plans</div>
+          <h3 class="font-heading font-bold text-white text-xl mb-2 group-hover:text-lime transition-colors">2024 Goalkeeper Session Compendium</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">A full year's worth of progressive goalkeeper coaching sessions.</p>
+          <p class="font-heading font-bold text-lime text-lg mt-auto">£9.99</p>
+        </div>
+        <div class="p-8 bg-white/5 group flex flex-col">
+          <div class="text-lime font-heading font-bold text-sm uppercase tracking-wider mb-3">Session Plans</div>
+          <h3 class="font-heading font-bold text-white text-xl mb-2 group-hover:text-lime transition-colors">Goalkeeper Coaching Sessions Collection (2023)</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">A collection of tried-and-tested goalkeeper coaching sessions from 2023.</p>
+          <p class="font-heading font-bold text-lime text-lg mt-auto">£4.99</p>
+        </div>
+        <div class="p-8 bg-white/5 group flex flex-col">
+          <div class="text-lime font-heading font-bold text-sm uppercase tracking-wider mb-3">Training Plan</div>
+          <h3 class="font-heading font-bold text-white text-xl mb-2 group-hover:text-lime transition-colors">Junior Goalkeeper Training Plan</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-4">A structured training plan designed for young goalkeepers.</p>
+          <p class="font-heading font-bold text-lime text-lg mt-auto">£2.99</p>
+        </div>
+      </div>
+      <p class="text-center mt-8">
+        <a href="/resources/" class="inline-flex items-center px-6 py-3 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+          All Resources
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Banner image 2 -->
+  <section class="h-64 md:h-96 overflow-hidden">
+    <img
+      src="/images/banners/clubmogk-banner-1.jpg"
+      alt="MOGK goalkeeper coaching"
+      loading="lazy"
+      class="w-full h-full object-cover object-top"
+    />
+  </section>
+
+  <!-- Blog / My Thoughts -->
+  {latestPosts.length > 0 && (
+    <section class="py-12 xl:py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-heading font-extrabold text-4xl md:text-5xl text-white mb-4">
+            My <span class="text-lime">Thoughts</span>
+          </h2>
+          <p class="text-white/60 text-lg">From time to time I publish blog posts about my journey or coaching in general.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {latestPosts.map((post) => (
+            <a href={`/blog/${post.id.replace(/\.md$/, '')}/`} class="p-8 bg-white/5 group flex flex-col">
+              <p class="text-white/50 font-heading text-xs uppercase tracking-wider mb-3">
+                {post.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </p>
+              <h3 class="font-heading font-bold text-white text-lg mb-3 group-hover:text-lime transition-colors leading-snug">
+                {post.data.title}
+              </h3>
+              <p class="text-white/50 text-sm leading-relaxed line-clamp-3 mb-4">{post.data.excerpt}</p>
+              <span class="mt-auto inline-block text-lime font-heading font-semibold text-sm uppercase tracking-wider">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-block align-middle ml-0.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </a>
+          ))}
+        </div>
+        <p class="text-center mt-8">
+          <a href="/blog/" class="inline-flex items-center px-6 py-3 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+            Read All Posts
+          </a>
+        </p>
+      </div>
+    </section>
+  )}
+
 </Layout>

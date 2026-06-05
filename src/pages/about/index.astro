@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const coachingHistory = [
+  { years: "2020–2023", role: "Goalkeeper Coach", club: "Cockfield United", league: "SIL Division 2" },
+  { years: "2022–2023", role: "First Team Goalkeeper Coach", club: "Long Melford FC", league: "Thurlow Nunn Premier Division" },
+  { years: "2023", role: "Head of Goalkeeping", club: "Long Melford FC", league: "Thurlow Nunn Premier Division" },
+];
+---
+
+<Layout
+  title="About"
+  description="About Mike — goalkeeper coach based on the Suffolk/Essex border. FA qualified with experience coaching across senior and youth teams in the East of England."
+>
+
+  <!-- Page Header -->
+  <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent"></div>
+    <div class="max-w-5xl mx-auto relative">
+      <p class="font-heading font-semibold text-lime text-sm uppercase tracking-widest mb-4">MO Goalkeeping</p>
+      <h1 class="font-heading font-extrabold text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-6 page-title">
+        About <span class="text-lime">Mike</span>
+      </h1>
+      <p class="text-white/60 text-xl max-w-2xl">
+        An experienced goalkeeper coach based on the Suffolk/Essex border, working with players of all ages and levels.
+      </p>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="h-56 md:h-80 overflow-hidden">
+    <img src="/images/banners/clubmogk-banner-6.jpg" alt="MO Goalkeeping coaching" class="w-full h-full object-cover" />
+  </section>
+
+  <!-- Story -->
+  <section class="py-12 xl:py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-2 space-y-6 text-white/75 text-lg leading-relaxed">
+        <h2 class="font-heading font-extrabold text-white text-3xl md:text-4xl">My Journey into Coaching</h2>
+        <p>
+          I've played in goal throughout my life. I started competitive men's football at 16 with Steeple Bumpstead, went on to play in university intramural leagues (winning a title in my first season), and then played for several clubs in the Portsmouth area before returning to Suffolk. I had a cup victory with a Sudbury-based team before eventually making the transition to coaching at the age of 30.
+        </p>
+        <p>
+          In August 2020, I began coaching at Cockfield United, a role I held for three seasons. In April 2022 I started working at Long Melford, where I managed up to six goalkeepers across senior and youth teams, including involvement in recruitment and trials. For the 2023/24 season I was appointed Head of Goalkeeping, which brought weekly training responsibility, goalkeeper philosophy development, player profiling, and oversight of additional coaching staff.
+        </p>
+        <p>
+          One of the things that drove me into coaching was the lack of dedicated goalkeeper coaching I experienced as a player. I wanted to provide the kind of position-specific support and development that I never had — and give goalkeepers the chance to maximise their potential.
+        </p>
+        <p>
+          My coaching philosophy is built around progressive, purposeful sessions with clearly defined objectives, delivered in a positive and enjoyable environment. I believe goalkeepers learn best when they're challenged, supported, and having fun.
+        </p>
+      </div>
+      <aside class="space-y-6">
+        <div class="bg-white/5 p-8">
+          <h3 class="font-heading font-bold text-lime text-lg uppercase tracking-wider mb-4">Qualifications</h3>
+          <ul class="text-white  space-y-2">
+            <li>FA Qualified Coach</li>
+            <li>Full DBS Certificate</li>
+          </ul>
+        </div>
+        <div class="bg-white/5 p-8">
+          <h3 class="font-heading font-bold text-white text-lg uppercase tracking-wider mb-4">Contact</h3>
+          <a href="mailto:mike@mogoalkeeping.co.uk" class="text-lime hover:underline break-all">mike@mogoalkeeping.co.uk</a>
+        </div>
+        <a href="/enquire/" class="block text-center px-6 py-4 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+          Send an Enquiry
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Coaching history -->
+  <section class="py-16 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-heading font-extrabold text-3xl text-white mb-8">Club Coaching <span class="text-lime">History</span></h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-white">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="text-left py-3 pr-6 font-heading font-bold text-white/40 text-xs uppercase tracking-wider">Years</th>
+              <th class="text-left py-3 pr-6 font-heading font-bold text-white/40 text-xs uppercase tracking-wider">Role</th>
+              <th class="text-left py-3 pr-6 font-heading font-bold text-white/40 text-xs uppercase tracking-wider">Club</th>
+              <th class="text-left py-3 font-heading font-bold text-white/40 text-xs uppercase tracking-wider">League</th>
+            </tr>
+          </thead>
+          <tbody>
+            {coachingHistory.map((row) => (
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                <td class="py-4 pr-6 text-lime font-heading font-semibold whitespace-nowrap">{row.years}</td>
+                <td class="py-4 pr-6 text-white">{row.role}</td>
+                <td class="py-4 pr-6">{row.club}</td>
+                <td class="py-4 text-white/50">{row.league}</td>
+              </tr>
+            ))}
+            <tr>
+              <td colspan="4" class="py-4 text-center text-white/50 italic">In 2023, I took the decision to step away from club coaching and focus on Club MO/GK.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 xl:py-20 px-6 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading font-extrabold text-4xl text-white mb-4">Interested in <span class="text-lime">Goalkeeper Coaching Sessions?</span></h2>
+      <p class="text-white/60 text-lg mb-8">Whether you're a goalkeeper yourself, or the parent of a goalkeeper looking to improve their game, I'd love to hear from you.</p>
+      <a href="/enquire/" class="inline-flex items-center px-8 py-4 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</Layout>
