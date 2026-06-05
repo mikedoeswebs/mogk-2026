@@ -1,46 +1,57 @@
-# Astro Starter Kit: Basics
+# MO Goalkeeping — mogk-2026
 
-```sh
-npm create astro@latest -- --template basics
+Website for [MO Goalkeeping](https://mogoalkeeping.co.uk) — goalkeeper coaching on the Suffolk/Essex border. Built with Astro 6, Tailwind CSS v4, and deployed on Vercel.
+
+## Stack
+
+- **Framework:** Astro 6 (static output)
+- **Styling:** Tailwind CSS v4
+- **Blog:** Astro Content Collections (Markdown)
+- **Forms:** Formspree (AJAX submission)
+- **Analytics:** Google Tag Manager → GA4
+- **Deployment:** Vercel
+
+## Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── fonts/          # EdoSzn display font
+│   └── images/         # Site images, banners, icons
+├── src/
+│   ├── components/     # Header, Footer
+│   ├── content/
+│   │   └── blog/       # Markdown blog posts
+│   ├── layouts/        # Layout.astro, BlogLayout.astro
+│   ├── pages/          # All routes
+│   └── styles/
+│       └── global.css  # @theme tokens, global rules
+├── vercel.json
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Install dependencies                        |
+| `npm run dev`     | Start dev server at `localhost:4321`        |
+| `npm run build`   | Build for production to `./dist/`           |
+| `npm run preview` | Preview production build locally            |
 
-All commands are run from the root of the project, from a terminal:
+## Adding a Blog Post
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Create a new `.md` file in `src/content/blog/` with this frontmatter:
 
-## 👀 Want to learn more?
+```markdown
+---
+title: Your Post Title
+date: 2026-01-01
+excerpt: A short summary shown in listings.
+category: Coaching
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Post content here...
+```
+
+The slug is derived from the filename. The post will appear automatically on `/blog/`.
