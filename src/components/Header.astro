@@ -1,13 +1,8 @@
 ---
 const navItems = [
   { label: 'Home', href: '/' },
-  {
-    label: 'Goalkeeper Coaching',
-    href: '/goalkeeper-coaching/',
-    children: [
-      { label: 'Club MO/GK', href: '/goalkeeper-coaching/club-mo-gk/' },
-    ],
-  },
+  { label: 'Club MO/GK', href: '/goalkeeper-coaching/club-mo-gk/' },
+  { label: 'Goalkeeper Coaching', href: '/goalkeeper-coaching/' },
   { label: 'Resources', href: '/resources/' },
   { label: 'About', href: '/about/' },
   { label: 'Blog', href: '/blog/' },
@@ -16,8 +11,7 @@ const navItems = [
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
-  return currentPath.startsWith(href);
+  return currentPath === href;
 }
 ---
 

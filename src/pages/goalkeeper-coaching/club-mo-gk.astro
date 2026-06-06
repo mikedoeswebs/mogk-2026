@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const gallery = Array.from({ length: 12 }, (_, i) => ({
   src: `/images/club-mogk/club-mogk-${i + 1}.jpg`,
+  fullSrc: `/images/club-mogk/full/club-mogk-${i + 1}.jpg`,
   alt: `Club MO/GK goalkeeper coaching session in Halstead`,
 }));
 
@@ -47,8 +48,8 @@ const youtubeId = 'kcuy422k4dU';
             Whether your young goalkeeper is just starting out or looking to push further, there's a place for them at Club MO/GK.
           </p>
         </div>
-        <div class="space-y-4">
-          <div class="border border-lime/30 p-6">
+        <div class="space-y-6">
+          <div class="bg-white/5 p-8">
             <h3 class="font-heading font-bold text-lime text-lg uppercase tracking-wider mb-3">Session Details</h3>
             <dl class="text-base text-white space-y-2">
               <div class="flex gap-3"><dt class="text-white/40 w-20 shrink-0">When</dt><dd>Monday evenings</dd></div>
@@ -57,7 +58,7 @@ const youtubeId = 'kcuy422k4dU';
               <div class="flex gap-3"><dt class="text-white/40 w-20 shrink-0">Coaches</dt><dd>FA qualified &amp; DBS checked</dd></div>
             </dl>
           </div>
-          <a href="/enquire/" class="block text-center px-6 py-3 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
+          <a href="/enquire/" class="block text-center px-6 py-4 bg-lime text-dark font-heading font-bold uppercase tracking-wider text-sm rounded hover:bg-lime-dark transition-colors">
             Sign Up Now
           </a>
         </div>
@@ -110,19 +111,87 @@ const youtubeId = 'kcuy422k4dU';
   <section class="py-4 px-6 pb-16">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3">
-        {gallery.map((img) => (
-          <div class="aspect-[4/3] overflow-hidden">
+        {gallery.map((img, i) => (
+          <button
+            class="aspect-[4/3] overflow-hidden cursor-zoom-in group"
+            data-lightbox={i}
+            aria-label={`View photo ${i + 1} of ${gallery.length}`}
+          >
             <img
               src={img.src}
               alt={img.alt}
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
-          </div>
+          </button>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <dialog
+    id="lightbox"
+    class="fixed inset-0 w-full h-full max-w-none max-h-none m-0 p-0 bg-transparent backdrop:bg-black/90"
+    aria-label="Photo lightbox"
+  >
+    <div id="lightbox-backdrop" class="w-full h-full flex items-center justify-center p-4 md:p-16">
+      <button id="lightbox-prev" class="fixed left-3 md:left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-lime transition-colors p-2 z-10" aria-label="Previous photo">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain select-none" />
+      <button id="lightbox-next" class="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-lime transition-colors p-2 z-10" aria-label="Next photo">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button id="lightbox-close" class="fixed top-4 right-4 text-white/60 hover:text-lime transition-colors p-2 z-10" aria-label="Close lightbox">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p id="lightbox-counter" class="fixed bottom-4 left-1/2 -translate-x-1/2 text-white/40 font-heading text-sm tabular-nums"></p>
+    </div>
+  </dialog>
+
+  <script define:vars={{ gallery }}>
+    const dialog = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const counter = document.getElementById('lightbox-counter');
+    let current = 0;
+
+    function show(index) {
+      current = (index + gallery.length) % gallery.length;
+      lightboxImg.src = gallery[current].fullSrc;
+      lightboxImg.alt = gallery[current].alt;
+      counter.textContent = `${current + 1} / ${gallery.length}`;
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        show(parseInt(btn.dataset.lightbox));
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      show(current - 1);
+    });
+
+    document.getElementById('lightbox-next').addEventListener('click', (e) => {
+      e.stopPropagation();
+      show(current + 1);
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+    document.getElementById('lightbox-backdrop').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) dialog.close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!dialog.open) return;
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  </script>
 
   <!-- CTA -->
   <section class="py-12 xl:py-20 px-6 text-center bg-white/[0.02]">
