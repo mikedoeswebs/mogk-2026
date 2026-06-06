@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://mogoalkeeping.co.uk',
+  site: 'https://www.mogoalkeeping.co.uk',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
