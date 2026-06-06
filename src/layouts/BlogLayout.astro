@@ -6,13 +6,14 @@ interface Props {
   date: Date;
   excerpt: string;
   category?: string;
+  ogImage?: string;
 }
 
-const { title, date, excerpt, category } = Astro.props;
+const { title, date, excerpt, category, ogImage } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
-<Layout title={title} description={excerpt}>
+<Layout title={title} description={excerpt} ogImage={ogImage}>
   <div class="pt-24 pb-16 px-6 max-w-3xl mx-auto">
     <a href="/blog/" class="inline-flex items-center gap-2 text-lime text-sm font-heading font-semibold uppercase tracking-widest mb-8 hover:text-lime-dark transition-colors">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-block align-middle"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>

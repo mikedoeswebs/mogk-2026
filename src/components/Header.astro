@@ -41,6 +41,8 @@ function isActive(href: string) {
                 ? 'text-lime'
                 : 'text-white hover:text-lime',
             ]}
+            aria-haspopup={item.children ? "true" : undefined}
+            aria-expanded={item.children ? "false" : undefined}
           >
             {item.label}
             {item.children && (
@@ -48,7 +50,7 @@ function isActive(href: string) {
             )}
           </a>
           {item.children && (
-            <div class="absolute top-full left-0 min-w-full bg-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150">
+            <div class="absolute top-full left-0 min-w-full bg-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150">
               {item.children.map((child) => (
                 <a
                   href={child.href}
@@ -137,6 +139,25 @@ function isActive(href: string) {
 </div>
 
 <script>
+  // Dropdown aria-expanded sync
+  document.querySelectorAll('nav [aria-haspopup]').forEach((trigger) => {
+    const group = trigger.closest('.group');
+    const dropdown = group?.querySelector('[class*="absolute"]');
+    if (!group || !dropdown) return;
+    group.addEventListener('focusin', () => trigger.setAttribute('aria-expanded', 'true'));
+    group.addEventListener('focusout', (e) => {
+      if (!group.contains((e as FocusEvent).relatedTarget as Node)) {
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    dropdown.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Escape') {
+        trigger.setAttribute('aria-expanded', 'false');
+        (trigger as HTMLElement).focus();
+      }
+    });
+  });
+
   const toggle = document.getElementById('nav-toggle');
   const mobileNav = document.getElementById('mobile-nav');
   const iconOpen = document.getElementById('icon-open');

@@ -15,4 +15,4 @@ Learn More
 
 *The dates, venue, and times are yet to be confirmed, but if you are interested in attending these sessions, please fill in the form below and let me know.
 
-[contact-form-7 id="13" title="Contact"]
+[Get in touch](/enquire/) to register your interest.
